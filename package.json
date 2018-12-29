@@ -6,7 +6,6 @@
     "heroku-postbuild": "ng build",
     "start": "http-server dist/client/",
     "ng": "ng",
-    "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
