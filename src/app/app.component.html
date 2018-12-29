@@ -1,0 +1,22 @@
+<div fxLayout="row" fxLayoutAlign="space-around">
+  <app-user (bid)="bid($event)" #item [user]="user" *ngFor="let user of users"></app-user>
+</div>
+
+<mat-card fxLayout="row">
+  <p *ngIf="!auction" fxFlex fxLayoutAlign="center center">Aktif açık arttırma bulunmuyor. Lütfen restore'a basınız.</p>
+  <div *ngIf="auction" fxFlex fxLayout="row" fxLayoutAlign="center center">
+    <div fxLayout="column">
+      <p>Current highhest bid</p>
+      <p>Current highhest bidder</p>
+      <p>Deadline</p>
+      <p>Balance time</p>
+    </div>
+    <div fxFlexOffset="10" fxLayout="column">
+      <p>{{ auction.latestBid?.amount }}</p>
+      <p>{{ auction.latestBid?.user?.name }}</p>
+      <p>{{ auction.deadline | date:'medium' }}</p>
+      <p>{{ auction.latestBid?.createdAt | date:'medium' }}</p>
+    </div>
+  </div>
+  <button (click)="restore()" fxFlexAlign="end" mat-raised-button color="primary">Restore</button>
+</mat-card>

@@ -1,0 +1,8 @@
+<mat-card fxLayout="column">
+    <p>{{ user.name }}</p>
+    <mat-form-field>
+      <input [(ngModel)]="user.amount" matInput placeholder="bid" type="number" min="0">
+      <span matSuffix>$&nbsp;</span>
+    </mat-form-field>
+    <button (click)="bid.emit(user)" mat-raised-button color="accent">Place bid</button>
+  </mat-card>
